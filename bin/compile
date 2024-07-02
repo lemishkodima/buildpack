@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 set -e
 
+BUILD_DIR=$1
+
 echo "-----> Installing dependencies"
 apt-get update
 apt-get install -y libx11-xcb1
 
 echo "-----> Installing Python packages"
-pip install -r requirements.txt
+pip install -r $BUILD_DIR/requirements.txt
 
 echo "-----> Installing Playwright"
 python -m playwright install
